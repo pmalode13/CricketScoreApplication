@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-10 col-md-8 col-lg-6 mx-auto ">
+      <div class="card card-signin my-5 jumbotron">
+        <div class="card-body">
+          <h3 class="card-title text-center">Match</h3>
+          <div class="form-label-group">
+            <label>Team 1</label>
+            <input type="text" [(ngModel)]="team1name" class="ml-5 my-2">
+          </div>
+          <div class="form-label-group my-2 ">
+            <label for="">Team 2</label>
+            <input type="text" class="ml-5 my-2 " [(ngModel)]="team2name">
+          </div>
+          <div class="form-label-group my-2 d-flex flex-row">
+            <label for="">TOSS</label>
+            <select class="hideLabel form-control ml-5" [(ngModel)]="toss">
+              <option selected="">Select Team</option>
+              <option>
+                {{team1name}}
+              </option>
+              <option>
+                {{team2name}}
+              </option>
+            </select>
+          </div>
+          <div class="form-label-group my-2 d-flex flex-row">
+            <label for="">Decision</label>
+            <select class="hideLabel form-control ml-5" [(ngModel)]="decision">
+              <option selected="">Decision</option>
+              <option value="1">
+                Batting
+              </option>
+              <option value="2">
+                Bowling
+              </option>
+            </select>
+          </div>
+          <div class="form-label-group">
+            <label>Overs</label>
+            <input type="text" [(ngModel)]="overs" class="ml-5 my-2">
+          </div>
+          <button class="btn btn-lg btn-primary btn-block text-uppercase my-3" type="button" (click)="onDefineTeamsClicked()">Define
+            Team</button>
+          <button class="btn btn-lg btn-danger btn-block text-uppercase my-3" type="button" (click)="onClearClick()">Clear
+            Team</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

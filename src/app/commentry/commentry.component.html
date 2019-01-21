@@ -1,0 +1,31 @@
+<div class="col-8 container">
+  <h1 style="text-align: center">Commentry</h1>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <td></td>
+      </tr>
+      <h3>({{matchService.getMatch().getTotalRuns()}}/{{matchService.getMatch().getTotalWickets()}})</h3>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" colspan="3"></th>
+      </tr>
+      <tr>
+        <th scope="col">Over</th>
+        <th scope="col">Runs On Ball</th>
+        <th scope="col">Commentry</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-success" *ngIf="matchService.getMatch().isInningChanged()==true">1st inning Complete 2nd is
+          started</td>
+      </tr>
+      <tr *ngFor="let commentry of matchService.getMatch().getCommentry().reverse()">
+        <th scope="row"> {{commentry.getCurrentOver()}}.{{commentry.getCurrentBall()}} </th>
+        <td>{{commentry.getRunsOnCurrentBall()}}</td>
+        <td>{{commentry.getStrikeBatsman()}} To {{commentry.getCurrentBowler()}},{{commentry.getDescriptionForBall()}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

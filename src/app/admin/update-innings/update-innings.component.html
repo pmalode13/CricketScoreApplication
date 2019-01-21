@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-md-7 col-lg-5 mx-auto ">
+      <div class="card card-signin my-5 jumbotron">
+        <div class="card-body">
+          <h3 class="card-title text-center">Add Current Record</h3>
+
+          <div class="form-label-group my-2 " *ngIf="showBowler">
+            <label for="">Select New Bowler</label>
+            <select class="hideLabel form-control" [(ngModel)]="currentBowler" (blur)="onChangeOfBowler($event)">
+              <option selected="">Player Name</option>
+              <option *ngFor="let bowlerName of fieldingPlayers">
+                {{bowlerName.name}}
+              </option>
+
+            </select>
+          </div>
+
+          <div class="form-label-group my-2 " *ngIf="showStrikeBatsman">
+            <label for="">Select Strike Batsman</label>
+            <select class="hideLabel form-control" [(ngModel)]="strikeBatsman">
+              <option selected="">Player Name</option>
+              <option *ngFor="let batsmanName of battingPlayers">
+                {{batsmanName.name}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-label-group my-2 " *ngIf="showNonStrikeBatsman">
+            <label for="">Select Non Strike Batsman</label>
+            <select class="hideLabel form-control" [(ngModel)]="nonStrikeBatsman">
+              <option selected="">Player Name</option>
+              <option *ngFor="let batsmanName of battingPlayers">
+                {{batsmanName.name}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-label-group">
+            <label>Possibility of Runs</label>
+            <select class="hideLabel form-control" [(ngModel)]="runsOnCurrentBall" (change)="onChangeOfPossibleRun($event)"
+              #possibleRun>
+              <option selected="">Select Run/Wicket</option>
+              <option>
+                0
+              </option>
+              <option>
+                1
+              </option>
+              <option>
+                2
+              </option>
+              <option>
+                3
+              </option>
+              <option>
+                4
+              </option>
+              <option>
+                6
+              </option>
+              <option>
+                Wicket
+              </option>
+            </select>
+          </div>
+
+          <div class="form-label-group my-2 " *ngIf="showTypeOfWicket">
+            <label for="">Wicket</label>
+            <select class="hideLabel form-control" (change)="forCatchBy($event)">
+              <option selected="">Select Wicket</option>
+              <option>
+                Catch
+              </option>
+              <option>
+                Bold
+              </option>
+              <option>
+                Runout
+              </option>
+              <option>
+                Stumping
+              </option>
+              <option>
+                Hitwicket
+              </option>
+            </select>
+          </div>
+
+          <div class="form-label-group my-2 " *ngIf="showCatchBy">
+            <label for="">Catch By</label>
+            <select class="hideLabel form-control" [(ngModel)]="currentBowler">
+              <option selected="">Player Name</option>
+              <option *ngFor="let bowlerName of fieldingPlayers">
+                {{bowlerName.name}}
+              </option>
+
+            </select>
+          </div>
+
+          <div class="form-label-group my-2 ">
+            <label for="">Commentry</label>
+            <div>
+              <textarea [(ngModel)]="description"></textarea>
+            </div>
+
+          </div>
+          <div class="text-success" *ngIf="firstInningCompleteNotification">Inning Complet</div>
+          <button class="btn btn-lg btn-primary btn-block text-uppercase " type="button" (click)="onAddScoreClick()">Add
+            Score</button>
+          <button class="btn btn-lg btn-danger btn-block text-uppercase " type="reset" (click)="onClearClick()">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

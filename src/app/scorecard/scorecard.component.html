@@ -1,0 +1,63 @@
+<h1>Score Card</h1>
+<h3><span>(</span>{{matchService.getMatch().getTotalRuns()}}<span>/</span>{{matchService.getMatch().getTotalWickets()}}<span>)</span></h3>
+<h3 *ngIf="previosInningScore">{{matchService.getMatch().getBattingTeamName()}}({{matchService.getMatch().getFirstInningRuns()}}/{{matchService.getMatch().getFirstInningWicket()}})</h3>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <td><b>Batting</b></td>
+      <td><b>{{matchService.getMatch().getBattingTeamName()}}</b></td>
+    </tr>
+    <tr>
+      <th scope="col">Batsman</th>
+      <th scope="col">R</th>
+      <th scope="col">B</th>
+      <th scope="col">SR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- <tr *ngFor="let batsmanName of matchService.getMatch().getBattingTeam().getPlayer();"> -->
+    <tr>
+      <td>*{{matchService.getMatch().getBattingTeam().StrikeBatsman().getName()}}</td>
+      <td>{{matchService.getMatch().getBattingTeam().StrikeBatsman().getBatting().getRunsForPlayer()}}</td>
+      <td>{{matchService.getMatch().getBattingTeam().StrikeBatsman().getBatting().getBallFacedByPlayer()}}</td>
+      <td>{{matchService.getMatch().getBattingTeam().StrikeBatsman().getBatting().getStrikeRateForPlayer()}}</td>
+    </tr>
+    <tr>
+      <td>{{matchService.getMatch().getBattingTeam().NonStrikeBatsman().getName()}}</td>
+      <td>{{matchService.getMatch().getBattingTeam().NonStrikeBatsman().getBatting().getRunsForPlayer()}}</td>
+      <td>{{matchService.getMatch().getBattingTeam().NonStrikeBatsman().getBatting().getBallFacedByPlayer()}}</td>
+      <td>{{matchService.getMatch().getBattingTeam().NonStrikeBatsman().getBatting().getStrikeRateForPlayer()}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <td><b>Bowling</b></td>
+      <td><b>{{matchService.getMatch().getBowlingTeamName()}}</b></td>
+    </tr>
+    <tr>
+      <th scope="col">Bowler</th>
+      <th scope="col">OV</th>
+      <th scope="col">M</th>
+      <th scope="col">R</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--       
+    <tr *ngFor="let bowlerName of matchService.getMatch().getBowlingTeam().getPlayer()">
+      <td>{{bowlerName.name}}</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr> -->
+    <tr>
+      <td>{{matchService.getMatch().getBowlingTeam().getStrikeBowler().getName()}}</td>
+      <td>{{matchService.getMatch().getBowlingTeam().getStrikeBowler().getBowling().getNumberOfOvers()}}.
+        {{matchService.getMatch().getCurrentBall()}}</td>
+      <td>-</td>
+      <td>{{matchService.getMatch().getBowlingTeam().getStrikeBowler().getBowling().getRunsGiven()}}</td>
+    </tr>
+  </tbody>
+</table>

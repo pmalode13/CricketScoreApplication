@@ -1,0 +1,19 @@
+<div class="d-flex flex-row container-fluid">
+  <div class="col-6">
+    <div class="row">
+      <div class="col">
+        <h2>{{matchService.getMatch().getTeamName1()}}</h2>
+      </div>
+    </div>
+    <app-team-player [player]="player" [index]="i" *ngFor="let player of matchService.getMatch().getTeam1().getPlayer();index as i"></app-team-player>
+  </div>
+  <div class="col-6">
+    <div class="row">
+      <div class="col">
+        <h2>{{matchService.getMatch().getTeamName2()}}</h2>
+      </div>
+    </div>
+    <app-team-player [player]="player" [index]="i" *ngFor="let player of matchService.getMatch().getTeam2().getPlayer();index as i"></app-team-player>
+  </div>
+</div>
+<div><button (click)="onStartMatchClick()">Start Match</button></div>
